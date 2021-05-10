@@ -46,7 +46,7 @@ Before writing anything to the file, me make sure to compare the path of the fol
 ```
 We have now protected ourselves against malicious users, who may try to either retrieve or delete our assets. We only allow the user to save files in the story-folder.  
 
-*Note: This solution only limits the user to save a file in a specific folder. Files in that folder can still be overwritten if the users chooses the same name when saving a file. To fix this issue, we would have to check if a file with the entered name already exists in the folder before writing to the file.* 
+*Note: This solution only limits the user to save a file in a specific folder. Files in that folder can still be overwritten if the user chooses the same name as an already existing one when saving a file. To fix this issue, we would have to check if a file with the entered name already exists in the folder before writing to the file.* 
 
 
 
@@ -79,7 +79,7 @@ The vulnerable lines of code are at the post endpoint to `/add` :
 The SQL-string is using string concatenation without doing any kind of validation before executing the DB-query. This is very dangerous, and should never be used. The user is able to invoke any kind of SQL-statement by simply ending the original string with a `'`, and then continuing with entering their own expression. User input is directly injected into the SQL-query, and by ending the input with `--`, the user can avoid SQL-exceptions since this makes SQL interpret all the following as a simple comment.
 
 ## Fix
-
+The fix to this exploit is fairly easy, as we do not need to implement our own custom solution. Instead of using string concatination to build our SQL-string, we simply make use of the already existing `PreparedStatement` class. Which has built in validation to combat SQL-injections, and does not allow the user to end an SQL-statement with `'`. The solution looks like this:
 ```
 app.post("/add", context -> {
             int userId = context.sessionAttribute("userId");
@@ -99,3 +99,5 @@ app.post("/add", context -> {
             context.redirect("/");
         });
 ```
+
+We have now protected ourselves against malicious SQL-injections. The user input is longer directly injected into the SQL-string by string concatination, but instead through the `PreparedStatement` class. 
