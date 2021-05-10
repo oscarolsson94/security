@@ -79,7 +79,7 @@ The vulnerable lines of code are at the post endpoint to `/add` :
 The SQL-string is using string concatenation without doing any kind of validation before executing the DB-query. This is very dangerous, and should never be used. The user is able to invoke any kind of SQL-statement by simply ending the original string with a `'`, and then continuing with entering their own expression. User input is directly injected into the SQL-query, and by ending the input with `--`, the user can avoid SQL-exceptions since this makes SQL interpret all the following as a simple comment.
 
 ## Fix
-The fix to this exploit is fairly easy, as we do not need to implement our own custom solution. Instead of using string concatination to build our SQL-string, we simply make use of the already existing `PreparedStatement` class. Which has built in validation to combat SQL-injections, and does not allow the user to end an SQL-statement with `'`. The solution looks like this:
+The fix to this exploit is fairly easy, as we do not need to implement our own custom solution. Instead of using string concatenation to build our SQL-string, we simply make use of the already existing `PreparedStatement` class. Which has built in validation to combat SQL-injections, and does not allow the user to end an SQL-statement with `'`. The solution looks like this:
 ```
 app.post("/add", context -> {
             int userId = context.sessionAttribute("userId");
@@ -100,4 +100,4 @@ app.post("/add", context -> {
         });
 ```
 
-We have now protected ourselves against malicious SQL-injections. The user input is longer directly injected into the SQL-string by string concatination, but instead through the `PreparedStatement` class. 
+We have now protected ourselves against malicious SQL-injections. The user input is no longer directly injected into the SQL-query string by string concatenation, but instead through the `PreparedStatement` class. This protects us from having users ending the current SQL-statement and adding their own. Users can no longer delete our table data.
