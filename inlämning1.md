@@ -47,3 +47,55 @@ Before writing anything to the file, me make sure to compare the path of the fol
 We have now protected ourselves against malicious users, who may try to either retrieve or delete our assets. We only allow the user to save files in the story-folder.  
 
 *Note: This solution only limits the user to save a file in a specific folder. Files in that folder can still be overwritten if the users chooses the same name when saving a file. To fix this issue, we would have to check if a file with the entered name already exists in the folder before writing to the file.* 
+
+
+
+## Exploit
+
+1. When adding a new note, enter `abc'); DROP TABLE user --`
+2. The `'` will end the SQL-string, and allow for another SQL-command to be entered.
+3. `--` makes everything after the user-string count as a comment.
+4. You have now deleted the entire user-table from the database.
+
+## Vulnerability
+
+The vulnerable lines of code are at the post endpoint to `/add` :
+```
+ app.post("/add", context -> {
+            int userId = context.sessionAttribute("userId");
+            String noteText = context.formParam("note");
+            String dateTimeString = LocalDateTime.now().toString();
+
+            try (Connection c = db.getConnection()) {
+                Statement s = c.createStatement();
+                s.executeUpdate(
+                    "INSERT INTO note(user_id, datetime, text) VALUES (" +
+                    userId + ", '" + dateTimeString + "', '" + noteText + "')"
+                );
+            }
+            context.redirect("/");
+        });
+```
+The SQL-string is using string concatenation without doing any kind of validation before executing the DB-query. This is very dangerous, and should never be used. The user is able to invoke any kind of SQL-statement by simply ending the original string with a `'`, and then continuing with entering their own expression. User input is directly injected into the SQL-query, and by ending the input with `--`, the user can avoid SQL-exceptions since this makes SQL interpret all the following as a simple comment.
+
+## Fix
+
+```
+app.post("/add", context -> {
+            int userId = context.sessionAttribute("userId");
+            String noteText = context.formParam("note");
+            String dateTimeString = LocalDateTime.now().toString();
+
+            try (Connection c = db.getConnection()) {
+                // FIXED: This fixes exploit #2.
+                PreparedStatement s = c.prepareStatement(
+                    "INSERT INTO note(user_id, datetime, text) VALUES (?, ?, ?)"
+                );
+                s.setInt(1, userId);
+                s.setString(2, dateTimeString);
+                s.setString(3, noteText);
+                s.executeUpdate();
+            }
+            context.redirect("/");
+        });
+```
