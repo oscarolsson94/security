@@ -2,7 +2,7 @@
 
 ## Exploit
 
-1. To get access to files you should not be able to, enter "../" when you are about to save a new file to the app.
+1. To get access to files, enter "../" when you are about to save a new file to the app.
 2. Save a file with the same path and name as an already existing file, for example: `../secrets/passwords.txt`
 3. The new file you saved has now overwritten the already existing one, and the old file and its contents are now deleted.
 
