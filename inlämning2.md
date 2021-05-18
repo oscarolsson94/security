@@ -21,7 +21,7 @@ The most common (and the most simple) way of doing this is to set up free, malic
 ![image](https://user-images.githubusercontent.com/69190482/118667761-8ff47d00-b7f4-11eb-9fd8-72e5679f0da0.png)  
 *How the scheme of the attack would look*  
 
-Even though the perpetrator now has access to the data. Most of todays sensitive data will be encrypted in some way.
+Even though the perpetrator now has access to the data. Most of todays sensitive data will be encrypted in some way. Depending on your security level and precautions taken however, that might or might not be easier than you think.
 
 
 ## How to prevent a Man in the middle attack
@@ -29,7 +29,7 @@ Even though the perpetrator now has access to the data. Most of todays sensitive
 To prevent MITM attacks, there are a couple of practical things to do as a user. This, combined with encryption and the use of different veification methods in your applications will provide decent protection against such attacks.
 
 Precautions needed to be taken by the user:  
-- Avoid public Wifi connections that aren't protected by password . 
+- Avoid public Wifi connections that aren't protected by a password. 
 - Pay attention to notifications in your browser reporting a website as unsecure.
 - Make sure to log out of a secure application when it's not being used.
 - Do not use a public network that you do not trust while conducting more sensitive transactions.
