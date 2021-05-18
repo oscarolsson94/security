@@ -31,4 +31,6 @@ To prevent MITM attacks, there are a couple of practical things to do as a user.
 Precautions needed to be taken by the user:  
 - Avoid public Wifi connections that aren't protected by password . 
 - Pay attention to notifications in your browser reporting a website as unsecure.
+- Make sure to log out of a secure application when it's not being used.
+- Do not use a public network that you do not trust while conducting more sensitive transactions.
 
