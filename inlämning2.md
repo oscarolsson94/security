@@ -26,6 +26,9 @@ decryption................
 
 ## How to prevent a Man in the middle attack
 
+To prevent MITM attacks, there are a couple of practical things to do as a user. This, combined with encryption and the use of different veification methods in your applications will provide decent protection against such attacks.
 
+Precautions needed to be taken by the user:  
+- Avoid public Wifi connections that aren't protected by password
 
 *Note: This solution only limits the user to save a file in a specific folder. Files in that folder can still be overwritten if the user chooses the same name as an already existing one when saving a file. To fix this issue, we would have to check if a file with the entered name already exists in the folder before writing to the file.* 
