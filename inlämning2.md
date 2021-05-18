@@ -21,7 +21,7 @@ The most common (and the most simple) way of doing this is to set up free, malic
 ![image](https://user-images.githubusercontent.com/69190482/118667761-8ff47d00-b7f4-11eb-9fd8-72e5679f0da0.png)  
 *How the scheme of the attack would look*  
 
-decryption................
+Even though the perpetrator now has access to the data. Most of todays sensitive data will be encrypted in some way.
 
 
 ## How to prevent a Man in the middle attack
