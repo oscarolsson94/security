@@ -21,7 +21,11 @@ The most common (and the most simple) way of doing this is to set up free, malic
 ![image](https://user-images.githubusercontent.com/69190482/118667761-8ff47d00-b7f4-11eb-9fd8-72e5679f0da0.png)  
 *How the scheme of the attack would look*  
 
-Even though the perpetrator now has access to the data. Most of todays sensitive data will be encrypted in some way. Depending on your security level and precautions taken however, that might or might not be easier than you think.
+Even though the perpetrator now has access to the data. Most of todays sensitive data will be encrypted in some way, which means it has to be decrypted. Depending on your security level and precautions taken however, that might or might not be easier than you think. There are multiple ways of decrypting two-way SSL (Secure Sockets Layer) traffic, here are some:  
+- **HTTPS spoofing** sends a phony certificate to the victim’s browser once the initial connection request to a secure site is made. It holds a digital thumbprint associated with the compromised application, which the browser verifies according to an existing list of trusted sites. The attacker is then able to access any data entered by the victim before it’s passed to the application.
+- **SSL BEAST** (browser exploit against SSL/TLS) targets a TLS version 1.0 vulnerability in SSL. Here, the victim’s computer is infected with malicious JavaScript that intercepts encrypted cookies sent by a web application. Then the app’s cipher block chaining (CBC) is compromised so as to decrypt its cookies and authentication tokens.
+- **SSL hijacking** occurs when an attacker passes forged authentication keys to both the user and application during a TCP handshake. This sets up what appears to be a secure connection when, in fact, the man in the middle controls the entire session.
+- **SSL stripping** downgrades a HTTPS connection to HTTP by intercepting the TLS authentication sent from the application to the user. The attacker sends an unencrypted version of the application’s site to the user while maintaining the secured session with the application. Meanwhile, the user’s entire session is visible to the attacker.
 
 
 ## How to prevent a Man in the middle attack
