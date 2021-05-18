@@ -29,5 +29,6 @@ decryption................
 To prevent MITM attacks, there are a couple of practical things to do as a user. This, combined with encryption and the use of different veification methods in your applications will provide decent protection against such attacks.
 
 Precautions needed to be taken by the user:  
-- Avoid public Wifi connections that aren't protected by password
+- Avoid public Wifi connections that aren't protected by password . 
+- Pay attention to notifications in your browser reporting a website as unsecure.
 
