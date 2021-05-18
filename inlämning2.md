@@ -8,7 +8,7 @@ A man in the middle (MITM) attack is a general term for when an attacker positio
 
 The goal of a MITM-attack is to steal personal information. For example login credentials, account details and credit card numbers. Targets are typically users of financial applications, SaaS businesses, e-commerce sites and other websites where logging in or providing secret information is required.
 
-This quote nicely sums up what n MITM-attack is:
+This quote nicely sums up what a MITM-attack is:
 > A MITM attack is the equivalent of a mailman opening your bank statement, writing down your account details and then resealing the envelope and delivering it to your door.
 
 ## How does an attacker carry out a MITM attack?
