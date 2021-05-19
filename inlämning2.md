@@ -48,7 +48,7 @@ It is considered best practice for applications to use SSL/TLS to secure every p
   
 Be careful when connecting to random Wifi hotspots or networks that you dont trust. You should always be aware of the risks and possible consequences of sending private information over the internet while connected to an unknown network. Avoid logging in to personal accounts or submitting sensitive information while on an unknown network, especially things like online banking, entering credit card information and things alike.
 
-This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in difficult your information is for the attacker to harvest. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from users. I believe this issue needs to be brought up in order for more people to realize the severe damage this attack could cause, without you even knowing what or how it could have happened. 
+This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in how difficult your information is for the attacker to harvest. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from users. I believe this issue needs to be brought up in order for more people to realize the severe damage this attack could cause, without you even knowing what or how it could have happened. 
   
 ## Final Note  
 
