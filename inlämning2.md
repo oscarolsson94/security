@@ -45,4 +45,7 @@ For website operators, secure communication protocols, including TLS and HTTPS, 
 It is considered best practice for applications to use SSL/TLS to secure every page of their site and not just the pages that require users to log in. Doing so helps decreases the chance of an attacker stealing session cookies from a user browsing on an unsecured section of a website while logged in.
   
 ## What can we learn and how does this correlate to the course material?  
+  
+Be careful when connecting to random Wifi hotspots or networks that you dont trust. You should always be aware of the risks and possible consequences of sending private information over the internet while connected to an unknown network.   
 
+This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in how easy or hard your information is to harvest for the attacker. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from the users. 
