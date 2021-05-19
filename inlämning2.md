@@ -15,7 +15,7 @@ This quote nicely sums up what a MITM-attack is:
 
 The first step of an attack is to intercept user traffic through the attacker’s network before it reaches its intended destination.
 
-The most common (and the most simple) way of doing this is to set up free, malicious WiFi hotspots available to the public. For example you can take your laptop to a coffee shop and set up your own network. Typically named in a way that corresponds to the location, maybe "starbucks free wifi", and without password protection. Once a victim connects to such a hotspot, the attacker gains full visibility to any online data exchange.
+The most common (and the most simple) way of doing this is to set up free, malicious WiFi hotspots available to the public. For example you can take your laptop to a coffee shop and set up your own network. Typically named in a way that corresponds to the location, something along the lines with "starbucks free wifi", and without password protection. Once a victim connects to such a hotspot, the attacker gains full visibility to any online data exchange.
 
 
 ![image](https://user-images.githubusercontent.com/69190482/118667761-8ff47d00-b7f4-11eb-9fd8-72e5679f0da0.png)  
