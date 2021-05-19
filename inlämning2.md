@@ -42,13 +42,13 @@ Precautions needed to be taken by the user:
 
 For website operators or application developers, secure communication protocols, including TLS and HTTPS, help mitigate spoofing attacks by robustly encrypting and authenticating transmitted data. Doing so prevents the interception of site traffic and blocks the decryption of sensitive data, such as authentication tokens.
 
-It is considered best practice for applications to use SSL/TLS to secure every page of their site and not just the pages that require users to log in. Doing so helps decreases the chance of an attacker stealing session cookies from a user browsing on an unsecured section of a website while logged in.
+It is considered best practice for applications to use SSL/TLS to secure every page of their site and not just the pages that require users to log in. Doing so aids in decreasing the chance of an attacker stealing session cookies from a user browsing on an unsecured section of a website while logged in.
   
 ## What can we learn and how does this correlate to the course material?  
   
 Be careful when connecting to random Wifi hotspots or networks that you dont trust. You should always be aware of the risks and possible consequences of sending private information over the internet while connected to an unknown network. Avoid logging in to personal accounts or submitting sensitive information while on an unknown network, especially things like online banking, entering credit card information and things alike.
 
-This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in how easy or hard your information is to harvest for the attacker. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from the users. I believe this issue needs to be brought up in order for more people to realize the severe damage this attack could cause, without you even knowing what or how it could happen. 
+This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in difficult your information is for the attacker to harvest. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from users. I believe this issue needs to be brought up in order for more people to realize the severe damage this attack could cause, without you even knowing what or how it could have happened. 
   
 ## Final Note  
 
