@@ -52,4 +52,4 @@ This attack correlates to the course content in the way that it is partly softwa
   
 ## Final Note  
 
-Use free wifi on your own risk. You dont always have the luxury of connecting to a network which you know is completely safe, for example when travelling. In this case, be aware of what possible threats are out there, and protect yourself in the ways that you can. As a developer, use SSL to secure your entire application or every page of your website.
+Use free wifi on your own risk. You dont always have the luxury of connecting to a network which you know is completely safe, for example when travelling. In this case, be aware of what possible threats are out there, and protect yourself in the ways that you can. As a developer, use SSL to secure your entire application or every page of your website, not just the pages handling login.
