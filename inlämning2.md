@@ -46,6 +46,6 @@ It is considered best practice for applications to use SSL/TLS to secure every p
   
 ## What can we learn and how does this correlate to the course material?  
   
-Be careful when connecting to random Wifi hotspots or networks that you dont trust. You should always be aware of the risks and possible consequences of sending private information over the internet while connected to an unknown network.   
+Be careful when connecting to random Wifi hotspots or networks that you dont trust. You should always be aware of the risks and possible consequences of sending private information over the internet while connected to an unknown network. Avoid logging in to personal accounts while on an unknown network, for example 
 
 This attack correlates to the course content in the way that it is partly software related. Your applications encryption and security plays a part in how easy or hard your information is to harvest for the attacker. However, the major part of this vulnerability comes down to human error or just simply lack of knowledge from the users. 
