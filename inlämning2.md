@@ -40,7 +40,7 @@ Precautions needed to be taken by the user:
 - Do not use a public network that you do not trust while conducting more sensitive transactions.
 
 
-For website operators, secure communication protocols, including TLS and HTTPS, help mitigate spoofing attacks by robustly encrypting and authenticating transmitted data. Doing so prevents the interception of site traffic and blocks the decryption of sensitive data, such as authentication tokens.
+For website operators or application developers, secure communication protocols, including TLS and HTTPS, help mitigate spoofing attacks by robustly encrypting and authenticating transmitted data. Doing so prevents the interception of site traffic and blocks the decryption of sensitive data, such as authentication tokens.
 
 It is considered best practice for applications to use SSL/TLS to secure every page of their site and not just the pages that require users to log in. Doing so helps decreases the chance of an attacker stealing session cookies from a user browsing on an unsecured section of a website while logged in.
   
@@ -52,4 +52,4 @@ This attack correlates to the course content in the way that it is partly softwa
   
 ## Final Note  
 
-Use free wifi on your own risk. You dont always have the luxury of connecting to a network which you know is completely safe, for example when travelling. In this case, be aware of what threats are out there, and protect yourself in the ways that you can. 
+Use free wifi on your own risk. You dont always have the luxury of connecting to a network which you know is completely safe, for example when travelling. In this case, be aware of what possible threats are out there, and protect yourself in the ways that you can. 
