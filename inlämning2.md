@@ -21,7 +21,7 @@ The most common (and the most simple) way of doing this is to set up free, malic
 ![image](https://user-images.githubusercontent.com/69190482/118667761-8ff47d00-b7f4-11eb-9fd8-72e5679f0da0.png)  
 *How the scheme of the attack would look*  
 
-Even though the perpetrator now has access to all the data, most of todays sensitive data will be encrypted in some way, which means it has to be decrypted in order to be of use. Depending on your security level and precautions taken however, that might or might not be easier than you think. There are multiple ways of decrypting two-way SSL (Secure Sockets Layer) traffic, here are some:  
+Even though the perpetrator now has access to all the data, most of todays sensitive data will be encrypted in some way, which means it has to be decrypted in order to be of use. Depending on your security level and precautions taken however, that might or might not be easier than you think. There are multiple ways of decrypting two-way SSL (Secure Sockets Layer) traffic, here are a few options:  
 
 - **HTTPS spoofing** sends a fake certificate to the victim’s browser once the initial connection request to a secure site is made. This certificate holds a digital thumbprint associated with the compromised application, which the browser verifies according to an existing list of trusted sites. The attacker is then able to access any data entered by the victim before it’s passed to the application.
 - **SSL BEAST** (browser exploit against SSL/TLS) targets a TLS version 1.0 vulnerability in SSL. Here, the victim’s computer is infected with malicious JavaScript that intercepts encrypted cookies sent by a web application. Then the app’s cipher block chaining (CBC) is compromised so as to decrypt its cookies and authentication tokens.
@@ -40,7 +40,7 @@ Precautions needed to be taken by the user:
 - Do not use a public network that you do not trust while conducting more sensitive transactions.
 
 
-For website operators or application developers, secure communication protocols, including TLS and HTTPS, help mitigate spoofing attacks by robustly encrypting and authenticating transmitted data. Doing so prevents the interception of site traffic and blocks the decryption of sensitive data, such as authentication tokens.
+For website owners or application developers, secure communication protocols, including TLS and HTTPS, help protecting against spoofing attacks by robustly encrypting and authenticating transmitted data. Doing so prevents the attacker from intercepting site traffic and blocks the decryption of sensitive data, such as authentication tokens.
 
 It is considered best practice for applications to use SSL/TLS to secure every page of their site and not just the pages that require users to log in. Doing so aids in decreasing the chance of an attacker stealing session cookies from a user browsing on an unsecured section of a website while logged in.
   
