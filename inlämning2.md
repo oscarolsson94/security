@@ -31,7 +31,7 @@ Even though the perpetrator now has access to the data. Most of todays sensitive
 
 ## How to prevent a Man in the middle attack
 
-To prevent MITM attacks, there are a bunch of practical things you can do as a user. This, combined with encryption and the use of different veification methods in your applications will provide decent protection against such attacks.
+To prevent MITM attacks, there are a bunch of practical things you can do as a user. This, combined with encryption and the use of different verification methods in your applications will provide decent protection against such attacks.
 
 Precautions needed to be taken by the user:  
 - Avoid public Wifi connections that aren't protected by a password. 
