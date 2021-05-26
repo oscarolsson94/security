@@ -93,7 +93,10 @@ We have now protected ourselves against malicious users, who may try to run dama
         
 1. Register an account at `/register`.
 2. Log in to the website.
-3. 
+3. Go to `/create` and fill in the form to make a quiz.
+4. In the title-input, enter `<script>alert('XSS!')</script>`.
+5. Go to the play-page at `/play`.
+6. As soon as the page loads, the script will run as it gets pulled from the database.
         
         
         
