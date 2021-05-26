@@ -28,7 +28,7 @@ To fix this vulnerability, we make use of `toAbsolutePath` followed by `normaliz
         Path flagFolder = Path.of("flags").toRealPath();   
         ...
 ```
-Before writing anything to the file, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot save files outside the story folder.
+Before writing anything to the file, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot access files outside the flag folder.
 ```
         if (!path.startsWith(flagFolder)) {
             context.status(403);
