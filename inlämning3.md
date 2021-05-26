@@ -51,7 +51,7 @@ We have now protected ourselves against malicious users, who may try to either r
 1. Visit the url for the search page:  `/search`.
 2. Enter the following into the search bar: `<script>alert('XSS!')</script>`.
 3. Press enter.
-4. An alert will show up, which means that we are able to write javascript directly into the input field.
+4. An alert will show up, which means that we are able to write javascript directly into the input field and make it run in the browser.
 
 ## Vulnerability
 
@@ -76,7 +76,7 @@ The vulnerable lines of code are in the `searchPage` method:
                 s.setInt(2, context.sessionAttribute("userId"));
                 ....
 ```
-The user input coming from the search input field is directly injected into the rest of the html, and by using a <script> tag, it will therefore also be interpreted by the browser as an html-element. Here we are simply showing that running scripts in the browser is possible with an innocent browser alert, but if an attacker really wanted to, they could cause serious harm to your website visitors. For example by creating fake password forms, links,  
+The user input coming from the search input field is directly injected into the rest of the html, and by using a <script> tag, it will therefore also be interpreted by the browser as an html-element. To be more concrete, a tag used to run javascript. Here we are simply showing that running scripts in the browser is possible by showing an innocent browser alert, but if an attacker really wanted to, they could cause serious harm to your website visitors. For example by creating fake password forms, malicious links, and a whole lot more.
 
 ## Fix
 
