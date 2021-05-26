@@ -123,12 +123,12 @@ The `quiz.title` variable, which we now know can contain a malicious script, is 
 In order to fix this issue, I will provide two different solutions. The first one is very similar to the last XSS exploit we talked about, as we will use something very similar to the `Encoder`-class which we used in Java. Since that is a Java library however, we cannot use that here. As Javascript is "the language of the web", there is a very neat way in which we can accomplish the same thing. In the standard Javascript library we have a function called `encodeURI`. This will accomplish the same thing, escaping dangerous characters that we don't want on our website.
         
 ```
+....         
 questionNode.innerHTML =
             '<h1 class="quiz-title">Quiz: ' + encodeURI(quiz.title) + (quiz.public ? '' : ' [private]') + '</h1>' +
             '<figure class="flag">' +
                 '<img src="/flag?name=' + question.image_path + '">' +
             '</figure>' +
             '<h2 class="prompt">' + question.prompt + '</h2>'
-        
-        
+....               
 ```
