@@ -45,3 +45,5 @@ Before showing any result in the browser, me make sure to compare the path of th
 ```
 We have now protected ourselves against malicious users, who may try to either retrieve our secret assets. We only allow the user to view files inside the flags-folder.  
 
+
+
