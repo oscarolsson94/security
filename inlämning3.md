@@ -82,9 +82,9 @@ The user input coming from the search input field is directly injected into the 
 
 To fix this vulnerability, we make use of `Encoder`, which is a class from the Owasp library which specializes in web security. The Encoder changes the way the `<script>` tag is interpreted by the browser. Import the following: `import org.owasp.encoder.Encode`. All we need to do other than to import, is to wrap our input inside of an Encoder-object, and the input will be interpreted as just a plain String by the browser:
 ```
- ...       
+ ....       
  "<p>Search results for: " + Encode.forHtml(context.queryParam("search")) + "</p>" + "<ul>";  
- ...       
+ ....       
 ```
 We have now protected ourselves against malicious users, who may try to run damaging code inside the search input field on our website. 
         
@@ -103,14 +103,21 @@ We have now protected ourselves against malicious users, who may try to run dama
 One could argue that you should not be able to save something like `<script>alert('XSS!')</script>` to the database in the first place, but here we are going to focus on the part of the code that actually triggers the script. The vulnerable lines of code are in the `showQuiz` function in the `main.js` file:
         
 ```
+        
+....        
 questionNode.innerHTML =
             '<h1 class="quiz-title">Quiz: ' + quiz.title + (quiz.public ? '' : ' [private]') + '</h1>' +
             '<figure class="flag">' +
                 '<img src="/flag?name=' + question.image_path + '">' +
             '</figure>' +
-            '<h2 class="prompt">' + question.prompt + '</h2>'        
+            '<h2 class="prompt">' + question.prompt + '</h2>'   
         
-```        
+....        
+        
+```    
+       
+The `quiz.title` variable, which we now know can contain a malicious script, is grabbed from the database and then directly injected into the html with the use of `innerHTML`. This means that at this point, the potentially malicious code is now stored in our database, and will run every single time ANY user visits the website. This is called a *Persisted* XSS exploit, as it is saved to the server, and hence it will run for anyone making a request to the site. 
+        
         
         
         
