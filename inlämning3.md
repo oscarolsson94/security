@@ -16,7 +16,7 @@ private static void singleFlagPage(Context context) throws IOException {
         context.result(svg);
     }
 ```
-We are not checking the users input before actually reading the file. Therefore we allow the user full access to our entire file system. If the user decides to enter `../` either once, or even a couple of times, they would be able to see files in folders where we do not want the user to have access to.
+We are not checking the users input before actually reading the file and displaying it in the browser. Therefore we allow the user full access to our entire file system. If the user decides to enter `../` either once, or even a couple of times, they would be able to see files in folders where we do not want the user to have access to.
 
 ## Fix
 
@@ -24,7 +24,7 @@ To fix this vulnerability, we make use of `toAbsolutePath` followed by `normaliz
 ```
         String flagName = context.queryParam("name");
 
-        Path path = Path.of("flags/" + filename).toAbsolutePath().normalize();
+        Path path = Path.of("flags/" + flagNameame).toAbsolutePath().normalize();
         Path flagFolder = Path.of("flags").toRealPath();   
         ...
 ```
