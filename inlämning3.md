@@ -95,8 +95,9 @@ We have now protected ourselves against malicious users, who may try to run dama
 2. Log in to the website.
 3. Go to `/create` and fill in the form to make a quiz.
 4. In the title-input, enter `<script>alert('XSS!')</script>`.
-5. Go to the play-page at `/play`.
-6. As soon as the page loads, the script will run as it gets pulled from the database.
+5. Create the quiz.
+6. Go to the play-page at `/play`.
+7. As soon as the page loads, the script will run as it gets pulled from the database.
         
 ## Vulnerability
         
@@ -138,6 +139,14 @@ This way, all the potentially harmful characters will be replaced with new chara
 Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. In my opinion, this is a bit tedious as it requires a lot of boiler plate code. Solving it this way would look something like the following:
         
 ```
+const h1 = document.createElement('h1');  
+h1.classList.add("quiz-title");        
+const h1Content = 'Quiz: ' + quiz.title;
+if(!quiz.public) h1Content.append("[private]");
         
+const figure = document.createElement('FIGURE'); 
+figure.classList.add("flag");
+        
+questionNode.appendChild(h1)        
         
 ```
