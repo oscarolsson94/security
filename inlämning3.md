@@ -1,8 +1,9 @@
 ## Exploit
 
 1. Visit the url where you can see a single flag:  `/flag`
-2. To get access to the secret file containing API-keys, enter "../" in the URL after the parameter `?name=`. Like this: `/flag?name=../keys.xml`
-3. Press enter, and u will see the contents of the secret XML-file on your screen.
+2. Click on one of the flags.
+3. To get access to the secret file containing API-keys, enter "../" in the URL after the parameter `?name=`. It should look like this: `/flag?name=../keys.xml`
+4. Press enter, and u will see the contents of the secret XML-file on your screen.
 
 ## Vulnerability
 
