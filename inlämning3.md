@@ -1,6 +1,6 @@
 ## Exploit
 
-1. Visit the url of the singleFlagPage `/flag`
+1. Visit the url where you can see a single flag:  `/flag`
 2. To get access to the secret file containing API-keys, enter "../" in the URL after the parameter `?name=`. Like this: `/flag?name=../keys.xml`
 3. Press enter, and u will see the contents of the secret XML-file on your screen.
 
@@ -20,24 +20,25 @@ We are not checking the users input before actually reading the file. Therefore 
 
 ## Fix
 
-To fix this vulnerability, we make use of `toAbsolutePath` followed by `normalize` to get the full path of the user input without extra `../`. We also grab the actual path of the "stories" folder.
+To fix this vulnerability, we make use of `toAbsolutePath` followed by `normalize` to get the full path of the user input without extra `../`. We also grab the actual path of the "flags" folder.
 ```
-        String filename = context.formParam("filename");
-        String text = context.formParam("text");
+        String flagName = context.queryParam("name");
 
-        Path path = Path.of("stories/" + filename).toAbsolutePath().normalize();
-        Path storyFolder = Path.of("stories").toRealPath();   
+        Path path = Path.of("flags/" + filename).toAbsolutePath().normalize();
+        Path flagFolder = Path.of("flags").toRealPath();   
         ...
 ```
 Before writing anything to the file, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot save files outside the story folder.
 ```
-        if (!path.startsWith(storyFolder)) {
+        if (!path.startsWith(flagFolder)) {
             context.status(403);
-            context.result("You cannot save files outside the story folder.");
+            context.result("You cannot access files outside the flag folder.");
             return;
         }
 
-        Files.writeString(path, text);
+        String svg = Files.readString(path);
+        context.contentType("image/svg+xml; charset=UTF-8");
+        context.result(svg);
 
     }
 ```
