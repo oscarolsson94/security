@@ -98,6 +98,15 @@ We have now protected ourselves against malicious users, who may try to run dama
 5. Go to the play-page at `/play`.
 6. As soon as the page loads, the script will run as it gets pulled from the database.
         
+## Vulnerability
+        
+One could argue that you should not be able to save something like `<script>alert('XSS!')</script>` to the database in the first place, but here we are going to focus on the part of the code that actually triggers the script. The vulnerable lines of code are in the `showQuiz` function in the `main.js` file:
+        
+```
+        
+        
+```        
+        
         
         
         
