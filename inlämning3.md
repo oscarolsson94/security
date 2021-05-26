@@ -80,12 +80,9 @@ The user input coming from the search input field is directly injected into the 
 
 ## Fix
 
-To fix this vulnerability, we make use of `Encoder`, which is a class from the Owasp library which specializes in web security. The Encoder changes the way the `<script>` tag is interpreted by the browser. All we need to do is to wrap our input inside of an Encoder-object, and the input will be interpreted as just a plain String by the browser:
+To fix this vulnerability, we make use of `Encoder`, which is a class from the Owasp library which specializes in web security. The Encoder changes the way the `<script>` tag is interpreted by the browser. Import the following: `import org.owasp.encoder.Encode`. All we need to do other than to import, is to wrap our input inside of an Encoder-object, and the input will be interpreted as just a plain String by the browser:
 ```
-        String flagName = context.queryParam("name");
-
-        Path path = Path.of("flags/" + flagNameame).toAbsolutePath().normalize();
-        Path flagFolder = Path.of("flags").toRealPath();   
+ "<p>Search results for: " + Encode.forHtml(context.queryParam("search")) + "</p>" + "<ul>";  
         ...
 ```
 Before showing any result in the browser, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot access files outside the flag folder.
