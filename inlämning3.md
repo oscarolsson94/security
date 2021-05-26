@@ -132,8 +132,10 @@ questionNode.innerHTML =
             '<h2 class="prompt">' + question.prompt + '</h2>'
 ....               
 ```
+This way, all the potentially harmful characters will be replaced with new characters, whom in turn cannot be inte        
+        
 
-Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. This would look something like the following:
+Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. In my opinion, this is a bit tedious as it requires a lot of boiler plate code. Solving it this way would look something like the following:
         
 ```
         
