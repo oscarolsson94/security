@@ -82,21 +82,19 @@ The user input coming from the search input field is directly injected into the 
 
 To fix this vulnerability, we make use of `Encoder`, which is a class from the Owasp library which specializes in web security. The Encoder changes the way the `<script>` tag is interpreted by the browser. Import the following: `import org.owasp.encoder.Encode`. All we need to do other than to import, is to wrap our input inside of an Encoder-object, and the input will be interpreted as just a plain String by the browser:
 ```
+ ...       
  "<p>Search results for: " + Encode.forHtml(context.queryParam("search")) + "</p>" + "<ul>";  
-        ...
+ ...       
 ```
-Before showing any result in the browser, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot access files outside the flag folder.
-```
-        if (!path.startsWith(flagFolder)) {
-            context.status(403);
-            context.result("You cannot access files outside the flag folder.");
-            return;
-        }
-
-        String svg = Files.readString(path);
-        context.contentType("image/svg+xml; charset=UTF-8");
-        context.result(svg);
-
-    }
-```
-We have now protected ourselves against malicious users, who may try to either retrieve our secret assets. We only allow the user to view files inside the flags-folder.  
+We have now protected ourselves against malicious users, who may try to run damaging code inside the search input field on our website. 
+        
+        
+## Exploit
+        
+1. Register an account at `/register`.
+2. Log in to the website.
+3. 
+        
+        
+        
+        
