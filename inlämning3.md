@@ -136,17 +136,29 @@ questionNode.innerHTML =
 This way, all the potentially harmful characters will be replaced with new characters, whom in turn cannot be inte        
         
 
-Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. In my opinion, this is a bit tedious as it requires a lot of boiler plate code. Solving it this way would look something like the following:
+Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. In my opinion, this is a bit tedious as it requires a lot of boiler plate code and the solution is not very modern. Solving it this way would look something like the following:
         
 ```
 const h1 = document.createElement('h1');  
-h1.classList.add("quiz-title");        
+h1.classList.add("quiz-title"); 
+
 const h1Content = 'Quiz: ' + quiz.title;
-if(!quiz.public) h1Content.append("[private]");
+if(!quiz.public) h1Content += "[private]";
+        
+h1.textContent = h1Content;
         
 const figure = document.createElement('FIGURE'); 
 figure.classList.add("flag");
         
-questionNode.appendChild(h1)        
+const img = document.createElement('IMG'); 
+img.src = "/flag?name=" + question.image_path;        
+figure.appendChild(img)
+        
+const h2 = document.createElement('h2');
+h2.textContent = question.prompt;  
+        
+questionNode.appendChild(h1); 
+questionNode.appendChild(figure);  
+questionNode.appendChild(h2);          
         
 ```
