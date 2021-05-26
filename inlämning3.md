@@ -28,7 +28,7 @@ To fix this vulnerability, we make use of `toAbsolutePath` followed by `normaliz
         Path flagFolder = Path.of("flags").toRealPath();   
         ...
 ```
-Before writing anything to the file, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot access files outside the flag folder.
+Before showing any result in the browser, me make sure to compare the path of the folder which we want the user to have access to, with the path entered by the users. If the path does not match, we throw an error telling the user they cannot access files outside the flag folder.
 ```
         if (!path.startsWith(flagFolder)) {
             context.status(403);
@@ -42,6 +42,5 @@ Before writing anything to the file, me make sure to compare the path of the fol
 
     }
 ```
-We have now protected ourselves against malicious users, who may try to either retrieve or delete our assets. We only allow the user to save files in the story-folder.  
+We have now protected ourselves against malicious users, who may try to either retrieve our secret assets. We only allow the user to view files inside the flags-folder.  
 
-*Note: This solution only limits the user to save a file in a specific folder. Files in that folder can still be overwritten if the user chooses the same name as an already existing one when saving a file. To fix this issue, we would have to check if a file with the entered name already exists in the folder before writing to the file.* 
