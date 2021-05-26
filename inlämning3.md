@@ -103,7 +103,12 @@ We have now protected ourselves against malicious users, who may try to run dama
 One could argue that you should not be able to save something like `<script>alert('XSS!')</script>` to the database in the first place, but here we are going to focus on the part of the code that actually triggers the script. The vulnerable lines of code are in the `showQuiz` function in the `main.js` file:
         
 ```
-        
+questionNode.innerHTML =
+            '<h1 class="quiz-title">Quiz: ' + quiz.title + (quiz.public ? '' : ' [private]') + '</h1>' +
+            '<figure class="flag">' +
+                '<img src="/flag?name=' + question.image_path + '">' +
+            '</figure>' +
+            '<h2 class="prompt">' + question.prompt + '</h2>'        
         
 ```        
         
