@@ -132,3 +132,10 @@ questionNode.innerHTML =
             '<h2 class="prompt">' + question.prompt + '</h2>'
 ....               
 ```
+
+Another way of protecting against this exploit, would be to replace the usage of `innerHtml`, and instead creating your elements with DOM methods together with `textContent`. This would look something like the following:
+        
+```
+        
+        
+```
