@@ -162,3 +162,4 @@ questionNode.appendChild(figure);
 questionNode.appendChild(h2);          
         
 ```
+By doing it this way, `textContent` basically provides the same protection when it comes to swapping out the potentially harmful characters.
