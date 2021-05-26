@@ -80,7 +80,7 @@ The user input coming from the search input field is directly injected into the 
 
 ## Fix
 
-To fix this vulnerability, we make use of `toAbsolutePath` followed by `normalize` to get the full path of the user input without extra `../`. We also grab the actual path of the "flags" folder.
+To fix this vulnerability, we make use of `Encoder`, which is a class from the Owasp library which specializes in web security. The Encoder changes the way the `<script>` tag is interpreted by the browser. All we need to do is to wrap our input inside of an Encoder-object, and the input will be interpreted as just a plain String by the browser:
 ```
         String flagName = context.queryParam("name");
 
