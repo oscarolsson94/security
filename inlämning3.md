@@ -48,24 +48,35 @@ We have now protected ourselves against malicious users, who may try to either r
 
 ## Exploit
 
-1. Visit the url for the search page:  `/search`
+1. Visit the url for the search page:  `/search`.
 2. Enter the following into the search bar: `<script>alert('XSS!')</script>`.
 3. Press enter.
 4. An alert will show up, which means that we are able to write javascript directly into the input field.
 
 ## Vulnerability
 
-The vulnerable lines of code are in the `singleFlagPage` method:
+The vulnerable lines of code are in the `searchPage` method:
 ```
-private static void singleFlagPage(Context context) throws IOException {
-        String flagName = context.queryParam("name");
-        Path path = Path.of("flags/" + flagName);
-        String svg = Files.readString(path);
-        context.contentType("image/svg+xml; charset=UTF-8");
-        context.result(svg);
-    }
+ if (context.queryParam("search") != null) {
+            // Show what term the user searched for.
+            content +=
+                "<p>Search results for: " + context.queryParam("search") + "</p>" +
+                "<ul>";
+
+            try (Connection c = db.getConnection()) {
+                // Make sure to only get the quizzes that are public or belong to the current user.
+                PreparedStatement s = c.prepareStatement(
+                    "SELECT quiz.id AS quiz_id, title, username, public " +
+                    "FROM quiz " +
+                    "JOIN user ON quiz.user_id = user.id " +
+                    "WHERE instr(title, ?) " +
+                    "AND (public = TRUE OR user.id = ?)"
+                );
+                s.setString(1, context.queryParam("search"));
+                s.setInt(2, context.sessionAttribute("userId"));
+                ....
 ```
-We are not checking the users input before actually reading the file and displaying it in the browser. Therefore we allow the user full access to our entire file system. If the user decides to enter `../` either once, or even a couple of times, they would be able to see files in folders where we do not want the user to have access to.
+The user input coming from the search input field is directly injected into the rest of the html, and by using a <script> tag, it will therefore also be interpreted by the browser as an html-element. Here we are simply showing that running scripts in the browser is possible with an innocent browser alert, but if an attacker really wanted to, they could cause serious harm to your website visitors. For example by creating fake password forms, links,  
 
 ## Fix
 
