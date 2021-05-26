@@ -118,7 +118,12 @@ questionNode.innerHTML =
        
 The `quiz.title` variable, which we now know can contain a malicious script, is grabbed from the database and then directly injected into the html with the use of `innerHTML`. This means that at this point, the potentially malicious code is now stored in our database, and will run every single time ANY user visits the website. This is called a *Persisted* XSS exploit, as it is saved to the server, and hence it will run for anyone making a request to the site. 
         
+## Fix        
+        
+In order to fix this issue, I will provide two different solutions. The first one is very similar to the last XSS exploit we talked about, as we will use the `Encoder`-class here as well:       
+        
+```
+questionNode.
         
         
-        
-        
+```
