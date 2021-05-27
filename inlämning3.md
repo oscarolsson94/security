@@ -163,3 +163,12 @@ questionNode.appendChild(h2);
         
 ```
 By doing it this way, `textContent` basically provides the same protection when it comes to swapping out the potentially harmful characters.
+
+## What are the key points and principles I will take away from this course?
+        
+This course has been a real eye-opener for me when it comes to cyber security. I have learnt a whole lot, even though at the same time I realize that we have nothing but scratched the surface of the are which is web security. Just the sheer amount of already existing exploits really makes you think about the current state of the web, and how secure or not secure todays applications really are. On top of the already known exploits and vulnerabilities, hackers and other types of malicious users are constantly evolving, and experimenting to find new ways to exploit.
+        
+It is in my, and many others opinion pretty much impossible to make and application completely secure. Sure, you can implement an unlimited amount of steps for the user to identify themselves, to try and make sure that no malicious user can get access to some kind of private information. However, a key point which I will definitely keep in mind from this course, is that security always has to be balanced together with user experience. Absolutely no one wants to go through ten steps of verification in order to log in to a simple application. On the other hand, some applications, such as online banking and things alike, might not get by without a very robust security layer. Finding the perfect balance between security and user experience is a difficult task, and one that I believe can only come from experience.
+        
+After finishing this course, my view is that as a developer it should be mandatory to have some kind of general knowledge about how to protect an application before you actually start working on any kind of real life application.
+        
